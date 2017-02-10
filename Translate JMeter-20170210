@@ -1,0 +1,61 @@
+Documentation
+1.开始
+1.0 概述
+当使用jmeter的时候，你需按照如下的过程。
+1.0.1测试计划构建
+为此，你将以GUI模式运行jmeter.
+然后你可以使用从浏览器或者本地应用程序来记录应用程序，你可以使用菜单文件->模板->录制。
+注意你可以手动构建你的计划，确保你阅读此文档并理解主要的概念。
+你可以调试它使用这些选项中的一个：
+Run->start no pauses
+Run->start
+在线程组中验证
+查看结果树渲染器或者测试器(CSS/JQUERY, JSON, Regexp, XPath)
+确保你在构建测试计划时，遵循最佳实践。
+1.0.2负载测试运行
+一旦你的测试计划已经准备好，你就可以开始你的负载测试。
+第一步就是设置运行jmeter的注入器，这同其他的负载测试工具包括的一样。
+.根据CPU,内存，网络正确调整机器的尺寸。
+.OS调整。
+.java设置：确保你安装的jmeter支持最新的java版本。
+.正确调整java 堆的大小，默认情况下，jmeter使用512MB的堆运行，这可能不足以进行你的测试，并且依靠于你的测试计划和你想要运行的线程数。
+一旦所有准备好，你就可以使用命令行模式来运行它进行负载测试。
+不用使用GUI模式运行负载测试。
+使用非GUI模式，你可以生成包含csv或者xml的结果文件，jmeter会在负载结束后生成一个HTML的报告。Jmeter会在它运行的时候提供一个默认的负载测试摘要。
+你还可以在你测试期间使用后端监听器来得到实时结果。
+1.0.3分析负载测试
+一旦你的负载测试完成，你就可以使用HTML报告分析你的负载测试。
+1.0.4 让我们开始吧
+开始使用Jmeter最简单的方法就是首先下载最新的生产版本并且安装它。地址如下：http://jmeter.apache.org/download_jmeter.cgi
+该版本包含构建和运行大多数类型测试的所有文件。例如：Web(HTTP/HTTPS),FTP,JDBC,LDAP,Java,Junit.
+如果你想要执行JDBC测试，当然，需要从你的供应商中得到合适的JDBC驱动。JMeter不附带任何JDBC驱动。
+Jmeter包括JMS API jar,但是不包含JMS客户端的实现。如果你想要运行JMS测试，你需要下载从JMS中下载合适的jars.
+有关安装附加jars的详细信息，请参阅JMeter ClassPath的部分。
+接下来，启动JMeter并完成用户指南的构建测试计划部分，以熟悉JMeter基础知识（例如，添加和删除元素）。
+最后，通过合适的部分在如何构建特殊类型的测试计划。例如，如果你对web应用程序感兴趣的话，可以查看构建web测试计划部分，其他特定的测试计划部分是：
+•	Advanced Web Test Plan
+•	JDBC
+•	FTP
+•	JMS Point-to-Point
+•	JMS Topic
+•	LDAP
+•	LDAP Extended
+•	WebServices (SOAP)
+一旦你满意构建和运行jmeter测试计划，你就可以查看各种配置元素（eg.计时器，监听器，断言和其他），从而更好的控制测试计划。
+1.1要求
+Jmeter要求你的计算机环境满足一些最低的要求。
+1.1.1	java 版本
+JMeter需要完全兼容JVM 7 or 8,我们建议你安装主要版本的最新小版本。Java 9没有在JMeter3.1上完全测试。
+因为JMeter只使用标准的Java APIs,如果你的jre运行失败是因为jre实现问题，请不要提交BUG 。
+1.1.2	操作系统
+Jmeter是一个100%的java应用程序并且应该在任何具有兼容Java实现的系统上正确运行。
+使用JMeter测试的操作系统可以在JMeter wiki的这个页面上被查看到。
+如果你的操作系统没有出现在wiki的页面，只要JVM是兼容的，JMeter就能运行它。
+1.2  可选项
+如果你打算在JMeter上开发，你会需要一个或者多个软件包如下所示。
+1.2.1 java编译器
+如果你想要构建JMeter源或者开发JMeter插件，你要一个完全兼容的JDK7或者更高的版本。
+1.2.2 SAX XML 解析器
+JMeter附带了Apache的 Xerces XML解析器。你可以有选择性的告诉JMeter使用不同的XML解析器。为此，请在JMeter类路径中包括第三方解析器的类，使用解析器实现整个完整的类名来更新jmeter.properties文件。
+1.2.3 电子邮件支持
+JMeter具有广泛的电子邮件功能。它能够基于测试结果发送邮件，并且有POP3(S)/IMAP(S)采样器。它还有SMTP(S)采样器。
